@@ -28,6 +28,7 @@ At the module.config.php replace Magento settings to yours. These settings at th
   * If given only updated_from it is mean [updated_from; +infinity)
   * If given only updated_to it is mean [0; updated_to]
   * If given both it is mean [updated_from; updated_to]
+The number of filters might be easily extended. 
 
 ## TODO
 * Move all of the Magento settings to .ENV
