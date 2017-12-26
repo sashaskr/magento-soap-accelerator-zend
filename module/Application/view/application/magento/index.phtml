@@ -1,0 +1,75 @@
+<h1>Product list</h1>
+<h3>On this page, filters are working separately for demonstration. But you can use it both at the same time. You can check it if you use the GET parameters for "limit", "updated_from" and "updated_to" at in one query</h3>
+<form class="form-inline" method="get">
+<h3>Updated_at filter</h3>
+
+	<p>How to use it:</p>
+	<p>There are two GET parameters: updated_from and updated_to. The format is 2001-02-01 23:00:00</p>
+	<ol>
+		<li>If given only updated_from it is mean [updated_from; +infinity)</li>
+		<li>If given only updated_to it is mean [0; updated_to]</li>
+		<li>If given both it is mean [updated_from; updated_to]</li>
+	</ol>
+
+<div class="row">
+	<div class="col-lg-6">
+		<div class="form-group">
+			<label for="from">From</label>
+			<input type="text" class="form-control" id="from" placeholder="2013-12-12 12:12:12" name="updated_from">
+		</div>
+	</div>
+	<div>
+		<div class="form-group">
+			<label for="to">To</label>
+			<input type="text" class="form-control" id="to" placeholder="2015-12-12 12:12:12" name="updated_to">
+		</div>
+	</div>
+</div> 
+  <br>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Filter by updated_at</button>
+  </div>
+  
+</form>
+<h3>Limit filter</h3>
+<p>How to use it:</p>
+	<p>There is one GET parameter: limit. The format is limit=A,B</p>
+	<ol>
+		<li>If given only A and right is empty it is mean [A; +infinity)</li>
+		<li>If given only B and left is empty it is mean [0; B]</li>
+		<li>If given both it is mean [A; B]</li>
+		<li>If given only one number it is mean [0;number]</li>
+	</ol>
+<form method="get">
+
+	<div class="form-group col-lg-6">
+		<label for="limit">Show limited slice from A to B items. Input format a,b</label>
+		<input type="text" class="form-control" id="limit" placeholder="3,7" name="limit">
+	</div>
+	<br>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">show</button>
+	</div>
+</form>
+
+
+<br>
+
+<table class='table table-bordered'>
+	<thead>
+		<th>#</th>
+		<th>sku</th>
+		<th>Product name</th>
+		<th>Action</th>
+	</thead>
+	<tbody>
+		<?php foreach($products as $product): ?>
+			<tr>
+				<td><?php echo $product->product_id ?></td>
+				<td><?php echo $product->sku ?></td>
+				<td><?php echo $product->name ?></td>
+				<td><a href="magento/product?id=<?= $product->product_id;?>">View</a></td>
+			</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
