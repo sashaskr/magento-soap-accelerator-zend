@@ -1,4 +1,4 @@
-# Magento SOAP Accelerator written on Zend Framework
+# Magento SOAP Accelerator based on Zend Framework
 ## Introduction
 This is the Magento SOAP accelerator proof of concept. The main idea is to move all of the SOAP responded objects to Memcache storage. 
 In this example, I demonstrated an ability to use both API versions. Demo application based on Zend Framework 2. 
